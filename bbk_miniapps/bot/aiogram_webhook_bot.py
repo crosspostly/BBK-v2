@@ -459,6 +459,7 @@ async def choose_date_handler(callback_query: CallbackQuery, state: FSMContext) 
         return
 
     await callback_query.answer()
+    await callback_query.message.bot.send_chat_action(chat_id=callback_query.message.chat.id, action=ChatAction.TYPING)
     _, row_index = available_slots[chosen_date]
     sheet = get_sheet()
     if not sheet: return

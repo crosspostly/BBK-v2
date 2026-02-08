@@ -6,7 +6,7 @@ from datetime import datetime
 import pytz
 
 from aiogram import Bot, Dispatcher, Router
-from aiogram.enums import ParseMode
+from aiogram.enums import ParseMode, ChatAction
 from aiogram.filters import Command, StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
@@ -158,6 +158,7 @@ async def get_and_send_available_dates(message: Message, state: FSMContext) -> N
 async def choose_date_handler(callback_query: CallbackQuery, state: FSMContext) -> None:
     logger.info(f"Received chosen date '{callback_query.data}' from user: {callback_query.from_user.id}")
     await callback_query.answer() # Acknowledge the callback
+    await callback_query.message.bot.send_chat_action(chat_id=callback_query.message.chat.id, action=ChatAction.TYPING)
     chosen_date = callback_query.data
     user_data = await state.get_data()
     available_dates = user_data.get("available_dates", [])
