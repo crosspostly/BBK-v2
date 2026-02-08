@@ -19,6 +19,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 # --- Configuration ---
 TOKEN = "8483555978:AAF9o3xiRpi-Q7y77-6dVmHfSsVgMPgR-wo"
+SPREADSHEET_ID = "1EodD0Q-831_vQlVA4Rla8fta1sOZiKLslPIxJLcnWb0"
 
 
 
@@ -40,7 +41,7 @@ def get_sheet():
         ]
         creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
         client = gspread.authorize(creds)
-        sheet = client.open("Панда Ролс").worksheet("Расписание")
+        sheet = client.open_by_key(SPREADSHEET_ID).worksheet("Расписание")
         logger.info("Successfully connected to Google Sheet.")
         return sheet
     except gspread.exceptions.GSpreadException as e:
