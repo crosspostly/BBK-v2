@@ -1,0 +1,36 @@
+  UNIT                                                   LOAD   ACTIVE SUB     DESCRIPTION
+  chrony.service                                         loaded active running chrony, an NTP client/server
+  containerd.service                                     loaded active running containerd container runtime
+  cron.service                                           loaded active running Regular background program processing daemon
+  dbus.service                                           loaded active running D-Bus System Message Bus
+  docker.service                                         loaded active running Docker Application Container Engine
+  getty@tty1.service                                     loaded active running Getty on tty1
+  google-cloud-ops-agent-fluent-bit.service              loaded active running Google Cloud Ops Agent - Logging Agent
+  google-cloud-ops-agent-opentelemetry-collector.service loaded active running Google Cloud Ops Agent - Metrics Agent
+  google-guest-agent.service                             loaded active running Google Compute Engine Guest Agent
+  google-osconfig-agent.service                          loaded active running Google OSConfig Agent
+  multipathd.service                                     loaded active running Device-Mapper Multipath Device Controller
+  networkd-dispatcher.service                            loaded active running Dispatcher daemon for systemd-networkd
+  nginx.service                                          loaded active running A high performance web server and a reverse proxy server
+  ollama.service                                         loaded active running Ollama Service
+  polkit.service                                         loaded active running Authorization Manager
+  rsyslog.service                                        loaded active running System Logging Service
+  serial-getty@ttyS0.service                             loaded active running Serial Getty on ttyS0
+  snap.cups.cups-browsed.service                         loaded active running Service for snap application cups.cups-browsed
+  snap.cups.cupsd.service                                loaded active running Service for snap application cups.cupsd
+  snapd.service                                          loaded active running Snap Daemon
+  ssh.service                                            loaded active running OpenBSD Secure Shell server
+  systemd-journald.service                               loaded active running Journal Service
+  systemd-logind.service                                 loaded active running User Login Management
+  systemd-networkd.service                               loaded active running Network Configuration
+  systemd-resolved.service                               loaded active running Network Name Resolution
+  systemd-udevd.service                                  loaded active running Rule-based Manager for Device Events and Files
+  tinyproxy.service                                      loaded active running Tinyproxy lightweight HTTP Proxy
+  unattended-upgrades.service                            loaded active running Unattended Upgrades Shutdown
+  user@1001.service                                      loaded active running User Manager for UID 1001
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+29 loaded units listed.
