@@ -358,14 +358,28 @@ async def get_and_send_available_dates(message: Message, state: FSMContext) -> N
         
         logger.info(f"Found {len(available_slots)} available dates.")
 
+        # Get extra info from G2 (Column G is index 6, Row 2 is index 1)
+        extra_info = ""
+        if len(data) > 1 and len(data[1]) > 6:
+            extra_info = data[1][6].strip()
+
         # Check if we have slots
         if available_slots:
             await state.update_data(available_slots=available_slots)
             await state.set_state(BookingStates.choosing_date)
             # Render page 0
             keyboard = render_dates_keyboard(available_slots, 0)
+            
+            # If extra_info (G2) exists, use it in italics. Otherwise use default prompt.
+            if extra_info:
+                prompt = f"<i>{extra_info}</i>"
+            else:
+                prompt = "Пожалуйста, выберите дату:"
+                
+            message_text = f"<b>{sheet_title}</b>\n{prompt}"
+                
             await message.edit_text(
-                f"<b>{sheet_title}</b>\nПожалуйста, выберите дату:", 
+                message_text, 
                 reply_markup=keyboard
             )
         else:
